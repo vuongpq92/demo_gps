@@ -82,12 +82,15 @@ class App extends React.Component {
       })
       .catch(error => {
         //hits this everytime on the actual device
-        console.error(error);
+        //console.error(error);
       })
       .done();
 
 
-    });
+    }, 
+    (error) => alert(error.message),
+    { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
   }
 
   componentDidMount() {
